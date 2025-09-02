@@ -1,0 +1,122 @@
+Bhai 👌 Next.js me **Route Group** ek powerful feature hai jo `app` router ke sath introduce hua tha.
+Chaliye simple aur detail me samjhata hoon:
+
+---
+
+# 📝 Route Groups in Next.js
+
+---
+
+## 🔹 1. What is a Route Group?
+
+* Route Groups aapko `app` folder ke andar **folders organize karne ka tarika** dete hain **bina unke URL path me include hue**.
+* Iske liye folder ka naam `()` parenthesis me likha jata hai.
+
+📂 Example:
+
+```
+app
+ ┣ (marketing)
+ ┃ ┣ home
+ ┃ ┃ ┗ page.js
+ ┃ ┗ about
+ ┃    ┗ page.js
+ ┣ (dashboard)
+ ┃ ┣ settings
+ ┃ ┃ ┗ page.js
+ ┃ ┗ profile
+ ┃    ┗ page.js
+ ┗ layout.js
+```
+
+### ✅ Resulting Routes
+
+* `/home` → from `(marketing)/home/page.js`
+* `/about` → from `(marketing)/about/page.js`
+* `/settings` → from `(dashboard)/settings/page.js`
+* `/profile` → from `(dashboard)/profile/page.js`
+
+👉 Notice: `(marketing)` aur `(dashboard)` **URL me show nahi hote**. Ye sirf **code organization** ke liye hain.
+
+---
+
+## 🔹 2. Why Use Route Groups?
+
+1. **Better Organization**
+
+   * Large projects me code ko **logical groups** me divide kar sakte ho.
+   * e.g. `(auth)`, `(dashboard)`, `(marketing)`
+
+2. **Different Layouts**
+
+   * Har route group apna **layout.js** rakh sakta hai.
+   * Example:
+
+     * Marketing pages ek layout ke andar ho (navbar, footer).
+     * Dashboard pages dusre layout ke andar ho (sidebar, auth check).
+
+3. **Avoid URL Pollution**
+
+   * Group ka naam URL me nahi aata → Clean routes.
+
+---
+
+## 🔹 3. Example with Layouts
+
+📂 File Structure:
+
+```
+app
+ ┣ (marketing)
+ ┃ ┣ layout.js
+ ┃ ┣ home/page.js
+ ┃ ┗ about/page.js
+ ┣ (dashboard)
+ ┃ ┣ layout.js
+ ┃ ┣ profile/page.js
+ ┃ ┗ settings/page.js
+```
+
+📄 `(marketing)/layout.js`
+
+```jsx
+export default function MarketingLayout({ children }) {
+  return (
+    <div>
+      <header>🌐 Marketing Navbar</header>
+      <main>{children}</main>
+      <footer>© 2025 Company</footer>
+    </div>
+  );
+}
+```
+
+📄 `(dashboard)/layout.js`
+
+```jsx
+export default function DashboardLayout({ children }) {
+  return (
+    <div className="flex">
+      <aside className="w-64 bg-gray-100">📊 Dashboard Sidebar</aside>
+      <main className="flex-1">{children}</main>
+    </div>
+  );
+}
+```
+
+---
+
+## 🔹 4. Key Notes
+
+* Folder with `()` is **not part of the URL**.
+* You can nest multiple route groups.
+* Useful for **separating concerns** like `(auth)`, `(dashboard)`, `(shop)`.
+
+---
+
+✅ **In Short:**
+Route Groups = **Organize code + Multiple layouts** → but clean URLs.
+
+---
+
+👉 Bhai, kya aap chahte ho ke main aapko ek **diagram** bana kar dikhaun jisme route group folder structure aur unke URL mapping clear ho jaye?
