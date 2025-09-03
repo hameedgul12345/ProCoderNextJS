@@ -1,0 +1,23 @@
+Static Site Generation:
+
+
+iska matlb ye hota hen k jo dynamic rendered pages hotey jokey run time pr execute hota isko build time pr hi 
+render kia jaye 
+
+export async function generateStaticParams(){
+
+    return(
+{
+    blogID:"1",
+blogID:"1",
+blogID:"1",
+blogID:"1",
+blogID:"1",
+blogID:"1",
+blogID:"1",
+
+
+}
+        
+    )
+}
