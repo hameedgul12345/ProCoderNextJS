@@ -20,4 +20,10 @@ blogID:"1",
 }
         
     )
+
+
+    
 }
+
+export const DynamicParams=flase 
+it will note create new pages
