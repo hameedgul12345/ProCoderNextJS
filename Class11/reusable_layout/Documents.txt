@@ -1,0 +1,23 @@
+jitney bhie hamarey Static pages hotey hen wo build time pr statically
+ Render hojatey but isko hm dynmic banasaktey hen forcefully tu jb bhie hm Refrsh kartey 
+ wo dobara render hoga
+
+
+
+ export const dynamic="force-dynamic"
+
+ export const dynamic="force-static"
+
+ export const dynamic="error"
+
+ export const dynamic="auto"
+
+ npm run build 
+ npm start
+
+Or 
+export const Services=({searchParams})=>{
+const search=await searchParams;
+clg(search)
+}
+
