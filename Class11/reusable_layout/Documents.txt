@@ -1,0 +1,88 @@
+const App=()=>{
+  return(
+    <Suspense fallback="Loading views"><Likes/></Suspense>
+  )
+}
+
+
+export const Likes=async()=>{
+  await new Promise((resolve)=>setTimeOut(resolve,3000))
+}
+
+
+
+Great question 👌
+React ka **`Suspense`** ek built-in feature hai jo mainly **asynchronous operations (lazy loading, data fetching, etc.) ke liye fallback UI dikhane** ke liye use hota hai.
+
+---
+
+## 🔎 Simple Definition
+
+**`Suspense` = "Jab tak data/component load ho raha hai, tab tak ek fallback (loading spinner, skeleton screen, text) show karne ka tarika."**
+
+---
+
+## 🔹 Example 1: Lazy Loading Component
+
+```jsx
+import React, { Suspense, lazy } from "react";
+
+// Lazy load component
+const Profile = lazy(() => import("./Profile"));
+
+export default function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+
+      {/* Suspense wraps the lazy component */}
+      <Suspense fallback={<p>Loading Profile...</p>}>
+        <Profile />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+👉 Jab tak `Profile` component load nahi hota, React `<p>Loading Profile...</p>` dikhayega.
+
+---
+
+## 🔹 Example 2: Data Fetching with Suspense (React 18)
+
+React 18 ke baad `Suspense` ko **data fetching** ke liye bhi use kar sakte ho (agar tum React’s new `use` hook ya libraries like React Query/Relay use kar rahe ho).
+
+```jsx
+import { Suspense } from "react";
+
+function UserDetails() {
+  const user = fetchUser(); // yeh async resource hai
+  return <h2>{user.name}</h2>;
+}
+
+export default function App() {
+  return (
+    <Suspense fallback={<h3>Loading User...</h3>}>
+      <UserDetails />
+    </Suspense>
+  );
+}
+```
+
+---
+
+## 🔑 Key Points
+
+1. **Suspense ke andar jo component async hai** (lazy load ya async data), uska load hote hi fallback hat jaata hai.
+2. **Fallback UI required hai** → yehi wo dikhata hai jab tak data/component load hota hai.
+3. Mostly use cases:
+
+   * **Lazy loaded components**
+   * **Code splitting**
+   * **Concurrent data fetching (React 18 features)**
+
+---
+
+👉 Tum chaho to mai tumhe ek **real-world example** bana ke dikhata hun (like API se data fetch + loading spinner with `Suspense`).
+
+Kya mai tumhe **API fetch with Suspense** ka demo bana dun?
