@@ -8,6 +8,31 @@ Is executed on server only
 Browser  se related code app yaha pr nahe execute karsaktey 
 e.g console.log(localstorage)
 e.g console.log(window)
+onClick={()=>{console.log('Hello')}}
 
 Client Component:
 is Executed on Client side as well as on Server Side also
+
+
+
+
+what is hydration in nextjs
+the process of adding interactivity to pre-rendered html FoodPartnerRegister
+
+
+
+export default const Comment=()=>{
+  if(typeof window==="undefined"){
+return(
+  <h1>hello </h1>
+)
+return(
+<h1>hi<h1/>
+)
+  }
+}
+
+
+Hydration Error:
+Ager server ka send kia gia html clinet k html se match nahi karta tu 
+us wakat Hydration Error ata 
