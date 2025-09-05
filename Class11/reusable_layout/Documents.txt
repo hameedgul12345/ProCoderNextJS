@@ -1,0 +1,13 @@
+Client components Vs Server components
+In nextjs every component is server component
+
+
+
+Server Component:
+Is executed on server only 
+Browser  se related code app yaha pr nahe execute karsaktey 
+e.g console.log(localstorage)
+e.g console.log(window)
+
+Client Component:
+is Executed on Client side as well as on Server Side also
