@@ -15,7 +15,7 @@ const Posts=()=>{
                             
                             <img src={product.image} alt={product.title} className="w-1/2 h-1/2" />
                             <h1 className="text-2xl font-bold w-full">{product.title.slice(0,10)}...</h1>
-                        <p className="text-lg font-bold">{product.description.slice(0,100)}...</p>
+                         <p className="text-lg font-bold">{product.description.slice(0,100)}...</p>
                        
                       
                 </div>
