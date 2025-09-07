@@ -1,7 +1,11 @@
-import Image from "next/image";
-import Posts from "./posts/page";
+
+// import Posts from "./posts/page";
+import Todos from "./todos/page";
 export default function Home() {
   return (
-  <Posts/>
+  <>
+  <Todos/>
+  {/* <Posts/> */}
+  </>
   );
 }
